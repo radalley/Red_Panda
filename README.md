@@ -18,8 +18,9 @@ I look forward to hearing back and would love to engage further about this proje
   My main goal, display my knowledge, prove myself, and have some fun doing so
     
 # The Challenge Itself
-  GET routes
-    Inventory routes that return the following:
+  GET routes: 
+      Inventory routes that return the following: 
+  
       All items in your inventory, including the item name, ID, amount in stock, and total capacity
         - Postman: get localhost:4567/itemInventory
         - SQL: SELECT name, items.id, stock, capacity FROM inventory JOIN items On items.id = inventory.item
@@ -57,6 +58,7 @@ I look forward to hearing back and would love to engage further about this proje
         - SQL: select name AS dist_name, item_id, cost from (select name, distributors.id AS dist_id1, item AS item_id, cost from distributors join distributor_prices on distributors.id = distributor) join (Select distributor AS dist_id2 from distributor_prices join items ON distributor_prices.item = items.id and items.id = 4) on dist_id1 = dist_id2
 POST/PUT/DELETE routes
   Routes that allow you to:
+    
     Add a new item to the database
       - Postman: post localhost:4567/addIntoDatabase?itemId=18&name=Sour Gummy Worms
       - SQL: insert into items (id,name) Values ("18","Sour Gummy Worms")
