@@ -1,6 +1,6 @@
 # Red_Panda
 
-# Hello Team at TopBloc! 
+Hello Team at TopBloc! 
 I am Riley Dalley. I am extremely excited to have the opportunity to present my current knowledge through this coding challenge. Here you will find my finished files, and within this readme document, all my thoughts and notes as I completed and tested this challenge.
 
 I look forward to hearing back and would love to engage further about this project to see what comments you may have. Without further ado, let's begin!
