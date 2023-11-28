@@ -1,5 +1,4 @@
 # Red_Panda
-Created for Backend Coding Challenge for Job Interview with TopBloc
 
 # Hello Team at TopBloc! 
 I am Riley Dalley. I am extremely excited to have the opportunity to present my current knowledge through this coding challenge. Here you will find my finished files, and within this readme document, all my thoughts and notes as I completed and tested this challenge.
