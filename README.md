@@ -17,7 +17,7 @@ I look forward to hearing back and would love to engage further about this proje
   - Choosing my SQL IDE was interesting. This was my first time trying SQLite Studio and found it to be a nice change of pace from previous programs.
   - Notes will include the Postman request made as well as the SQL  query sent to receive outputting data
   My main goal, display my knowledge, prove myself, and have some fun doing so
-  - 
+    
 # The Challenge Itself
   GET routes
     Inventory routes that return the following:
@@ -55,8 +55,8 @@ I look forward to hearing back and would love to engage further about this proje
       
       A dynamic route that, given an item ID, returns all offerings from all distributors for that item, including the distributor name, ID, and cost
 POST/PUT/DELETE routes
-        - Postman: post localhost:4567/itemsFromSameDistributor?itemId=4
-        - SQL: select name AS dist_name, item_id, cost from (select name, distributors.id AS dist_id1, item AS item_id, cost from distributors join distributor_prices on distributors.id = distributor) join (Select distributor AS dist_id2 from distributor_prices join items ON distributor_prices.item = items.id and items.id = 4) on dist_id1 = dist_id2
+  - Postman: post localhost:4567/itemsFromSameDistributor?itemId=4
+  - SQL: select name AS dist_name, item_id, cost from (select name, distributors.id AS dist_id1, item AS item_id, cost from distributors join distributor_prices on distributors.id = distributor) join (Select distributor AS dist_id2 from distributor_prices join items ON distributor_prices.item = items.id and items.id = 4) on dist_id1 = dist_id2
 
   Routes that allow you to:
     Add a new item to the database
