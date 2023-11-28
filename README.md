@@ -53,10 +53,9 @@ I look forward to hearing back and would love to engage further about this proje
         - SQL: SELECT  items.name AS item_name, items.id AS item_id, cost  FROM (SELECT name, distributors.id, item, cost FROM distributors JOIN distributor_prices ON distributors.id = distributor WHERE distributors.id = 2) JOIN items where item = items.id
       
       A dynamic route that, given an item ID, returns all offerings from all distributors for that item, including the distributor name, ID, and cost
+        - Postman: post localhost:4567/itemsFromSameDistributor?itemId=4
+        - SQL: select name AS dist_name, item_id, cost from (select name, distributors.id AS dist_id1, item AS item_id, cost from distributors join distributor_prices on distributors.id = distributor) join (Select distributor AS dist_id2 from distributor_prices join items ON distributor_prices.item = items.id and items.id = 4) on dist_id1 = dist_id2
 POST/PUT/DELETE routes
-    - Postman: post localhost:4567/itemsFromSameDistributor?itemId=4
-    - SQL: select name AS dist_name, item_id, cost from (select name, distributors.id AS dist_id1, item AS item_id, cost from distributors join distributor_prices on distributors.id = distributor) join (Select distributor AS dist_id2 from distributor_prices join items ON distributor_prices.item = items.id and items.id = 4) on dist_id1 = dist_id2
-
   Routes that allow you to:
     Add a new item to the database
       - Postman: post localhost:4567/addIntoDatabase?itemId=18&name=Sour Gummy Worms
