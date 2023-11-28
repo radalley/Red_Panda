@@ -30,23 +30,69 @@ public class Main {
         get("/itemOverStock", (req, res) -> DatabaseManager.getItemOverStock());
         get("/itemStockUnder35", (req, res) -> DatabaseManager.getItemStockUnder35());
         get("/itemFromId", (req, res) -> {
-            String id = req.queryParams("id");
+            String id = req.queryParams("itemId");
             return DatabaseManager.getItemFromId(id);
         });
         get("/allDistributors", (req, res) -> DatabaseManager.getAllDistributors());
-        get("/DistributorItemsFromId", (req, res) -> {
-            String id = req.queryParams("id");
-            return DatabaseManager.getDistributorItemsFromId(id);
+        get("/distributorItemsFromId", (req, res) -> {
+            String distId = req.queryParams("distId");
+            return DatabaseManager.getDistributorItemsFromId(distId);
         });
-        get("/ItemsFromSameDistributor", (req, res) -> {
-            String id = req.queryParams("id");
-            return DatabaseManager.getItemsFromSameDistributor(id);
+        get("/itemsFromSameDistributor", (req, res) -> {
+            String itemId = req.queryParams("itemId");
+            return DatabaseManager.getItemsFromSameDistributor(itemId);
         });
 
+        post("/addIntoDatabase", (req, res) -> {
+            String itemId = req.queryParams("itemId");
+            String name = req.queryParams("name");
+            return DatabaseManager.addIntoDatabase(itemId, name);
+        });
+        post("/addIntoInventory", (req, res) -> {
+            String item = req.queryParams("itemId");
+            String stock = req.queryParams("stock");
+            String capacity = req.queryParams("capacity");
+            return DatabaseManager.addIntoInventory(item, stock, capacity);
+        });
+        put("/modifyInventory", (req, res) -> {
+            String item = req.queryParams("itemId");
+            String stock = req.queryParams("stock");
+            String capacity = req.queryParams("capacity");
+            return DatabaseManager.modifyInventory(item, stock, capacity);
+        });
+        post("/addDistributor", (req, res) -> {
+            String name = req.queryParams("name");
+            String id = req.queryParams("distId");
+            return DatabaseManager.addDistributor(name, id);
+        });
+        post("/addToDistCatalog", (req, res) -> {
+            String distId = req.queryParams("distId");
+            String itemId = req.queryParams("itemId");
+            String cost = req.queryParams("cost");
+            return DatabaseManager.addToDistCatalog(distId, itemId, cost);
+        });
+        put("/modifyDistItemPrice", (req, res) -> {
+            String distId = req.queryParams("distId");
+            String itemId = req.queryParams("itemId");
+            String cost = req.queryParams("cost");
+            return DatabaseManager.modifyDistItemCost(distId, itemId, cost);
+        });
+        get("/getCheapestRestock", (req, res) -> {
+            String itemId = req.queryParams("itemId");
+            String quantity = req.queryParams("quantity");
+            return DatabaseManager.getCheapestRestock(itemId, quantity);
+        });
+        delete("/deleteFromInventory", (req, res) -> {
+            String itemId = req.queryParams("itemId");
+            return DatabaseManager.deleteFromInventory(itemId);
+        });
+        delete("/deleteDistributor", (req, res) -> {
+            String distId = req.queryParams("distId");
+            return DatabaseManager.deleteDistributor(distId);
+        });
 
-//        get("/inventory", (req, res) -> DatabaseManager.getInventory());
-//        get("/distributors", (req, res) -> DatabaseManager.getDistributors());
-        get("/version", (req, res) -> "TopBloc Code Challenge v1.001");
+        get("/inventory", (req, res) -> DatabaseManager.getInventory());
+        get("/version", (req, res) -> "TopBloc Code Challenge v1.0");
     }
 }
 
